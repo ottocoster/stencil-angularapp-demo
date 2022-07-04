@@ -1,7 +1,9 @@
 # stencil-angularapp-demo
 
-Created for blog : how stencil components connect to angular app directly
+Shows how Angular Reactive Forms work together with Stencil.js web components.
 
-Note: This is only for showing how stencil angularOutputTarget works with Angular App's internals by taking advantage of typescript paths config.
+Run npm start inside stencil-angularapp-demo to see it in action.
 
-For such usecase it is recommended to go with tools like nx.dex which makes it supereasy and scalable architecture. But for some reason, if you don't want mono-repo tools, this repo and article shows how to connecct different pieces together.
+Demo video:
+
+!(angular-webcomponents-stencil.gif "Stencil.js web components in Angular")
