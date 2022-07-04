@@ -6,4 +6,4 @@ Run npm start inside stencil-angularapp-demo to see it in action.
 
 Demo video:
 
-!(angular-webcomponents-stencil.gif "Stencil.js web components in Angular")
+![Stencil.js web components in Angular](./angular-webcomponents-stencil.gif)
