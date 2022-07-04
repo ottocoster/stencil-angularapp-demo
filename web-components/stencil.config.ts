@@ -2,7 +2,14 @@ import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-outpu
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
-const angularValueAccessorBindings: ValueAccessorConfig[] = [];
+const angularValueAccessorBindings: ValueAccessorConfig[] = [
+  {
+    elementSelectors: ['input-test'],
+    event: 'input',
+    targetAttr: 'value',
+    type: 'text',
+  },
+];
 
 export const config: Config = {
   namespace: 'web-components',

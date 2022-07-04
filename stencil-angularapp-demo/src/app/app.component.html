@@ -1,4 +1,10 @@
-<my-component
-  first="Pranav"
-  last="Sarda, Hope you like my article ❤️!"
-></my-component>
+<input-test
+  [value]="initialValue"
+  (input)="handleChange($event)"
+  [formControl]="input"
+  >Input test!</input-test
+>
+
+<p>
+  {{ input.valueChanges | async | json }}
+</p>

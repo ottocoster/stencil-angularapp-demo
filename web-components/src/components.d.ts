@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface InputTest {
+        "value": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +25,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLInputTestElement extends Components.InputTest, HTMLStencilElement {
+    }
+    var HTMLInputTestElement: {
+        prototype: HTMLInputTestElement;
+        new (): HTMLInputTestElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +38,15 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "input-test": HTMLInputTestElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface InputTest {
+        "onInput"?: (event: CustomEvent<string>) => void;
+        "value"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +62,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "input-test": InputTest;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +70,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "input-test": LocalJSX.InputTest & JSXBase.HTMLAttributes<HTMLInputTestElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
