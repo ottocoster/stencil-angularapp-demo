@@ -3,12 +3,12 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
-  {
-    elementSelectors: ['input-test'],
-    event: 'input',
-    targetAttr: 'value',
-    type: 'text',
-  },
+  // {
+  //   elementSelectors: ['input-test'],
+  //   event: 'input',
+  //   targetAttr: 'value',
+  //   type: 'text',
+  // },
 ];
 
 export const config: Config = {

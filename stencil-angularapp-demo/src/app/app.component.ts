@@ -8,15 +8,11 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'stencil-angularapp-demo';
-  input = new FormControl('');
-  initialValue = 'abc';
+  input = new FormControl('abc');
 
   ngOnInit(): void {
-    this.input.setValue('hallo');
     this.input.valueChanges.subscribe((v) => console.log(v));
   }
 
-  handleChange(event: Event) {
-    this.input.setValue((event.target as HTMLInputElement).value);
-  }
+  log = console.log;
 }

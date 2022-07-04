@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'input-test',
@@ -7,11 +7,8 @@ import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
 })
 export class InputTest {
   @Prop({ reflect: true, mutable: true }) value: string;
-  @Event() input: EventEmitter<string>;
   private onInputChangeValue(event: Event) {
     this.value = (event.target as HTMLInputElement).value;
-    this.input.emit(this.value);
-    console.log('event triggerdd');
   }
 
   render() {

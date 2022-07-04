@@ -8,13 +8,7 @@ import { Components } from '@web-components/dist/components';
 
 
 
-export declare interface InputTest extends Components.InputTest {
-  /**
-   *  
-   */
-  input: EventEmitter<CustomEvent<string>>;
-
-}
+export declare interface InputTest extends Components.InputTest {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
@@ -31,7 +25,6 @@ export class InputTest {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['input']);
   }
 }
 

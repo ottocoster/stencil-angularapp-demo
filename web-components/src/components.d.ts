@@ -44,7 +44,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface InputTest {
-        "onInput"?: (event: CustomEvent<string>) => void;
         "value"?: string;
     }
     interface MyComponent {
