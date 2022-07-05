@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,16 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'stencil-angularapp-demo';
-  input = new FormControl('abc');
+  formGroup = new FormGroup({
+    input: new FormControl('abc'),
+  });
+  log = console.log;
 
   ngOnInit(): void {
-    this.input.valueChanges.subscribe((v) => console.log(v));
+    this.formGroup.controls.input.valueChanges.subscribe((v) => console.log(v));
   }
 
-  log = console.log;
+  onSubmit() {
+    console.log(this.formGroup.value);
+  }
 }

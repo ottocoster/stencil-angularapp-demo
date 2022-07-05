@@ -1,9 +1,13 @@
-<input-test
-  ngDefaultControl
-  [formControl]="input"
-  (input)="log('input event fired')"
-  >Input test!</input-test
->
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <input-test
+    ngDefaultControl
+    formControlName="input"
+    (input)="log('input event fired')"
+    >Input test!</input-test
+  >
 
-<p>valueChanges: {{ input.valueChanges | async | json }}</p>
-<p>value: {{ input.value | json }}</p>
+  <button type="submit">Submit</button>
+</form>
+
+<p>valueChanges: {{ formGroup.controls.input.valueChanges | async | json }}</p>
+<p>value: {{ formGroup.controls.input.value | json }}</p>
