@@ -48,3 +48,29 @@ export class MyComponent {
     this.el = r.nativeElement;
   }
 }
+
+
+export declare interface SubmitButton extends Components.SubmitButton {
+  /**
+   *  
+   */
+  submitted: EventEmitter<CustomEvent<boolean>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'submit-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class SubmitButton {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['submitted']);
+  }
+}

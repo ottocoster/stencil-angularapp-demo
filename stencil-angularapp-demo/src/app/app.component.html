@@ -6,7 +6,7 @@
     >Input test!</input-test
   >
 
-  <button type="submit">Submit</button>
+  <submit-button (submitted)="log('submitted event')">Submit</submit-button>
 </form>
 
 <p>valueChanges: {{ formGroup.controls.input.valueChanges | async | json }}</p>

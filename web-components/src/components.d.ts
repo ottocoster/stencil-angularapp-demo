@@ -23,6 +23,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface SubmitButton {
+    }
 }
 declare global {
     interface HTMLInputTestElement extends Components.InputTest, HTMLStencilElement {
@@ -37,9 +39,16 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLSubmitButtonElement extends Components.SubmitButton, HTMLStencilElement {
+    }
+    var HTMLSubmitButtonElement: {
+        prototype: HTMLSubmitButtonElement;
+        new (): HTMLSubmitButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "input-test": HTMLInputTestElement;
         "my-component": HTMLMyComponentElement;
+        "submit-button": HTMLSubmitButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -60,9 +69,13 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface SubmitButton {
+        "onSubmitted"?: (event: CustomEvent<boolean>) => void;
+    }
     interface IntrinsicElements {
         "input-test": InputTest;
         "my-component": MyComponent;
+        "submit-button": SubmitButton;
     }
 }
 export { LocalJSX as JSX };
@@ -71,6 +84,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "input-test": LocalJSX.InputTest & JSXBase.HTMLAttributes<HTMLInputTestElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "submit-button": LocalJSX.SubmitButton & JSXBase.HTMLAttributes<HTMLSubmitButtonElement>;
         }
     }
 }
